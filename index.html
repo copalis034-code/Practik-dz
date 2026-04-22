@@ -1,75 +1,138 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link href="./output.css" rel="stylesheet">
+  <title>Store UI</title>
+  <link href="output.css" rel="stylesheet">
 </head>
-<body>
-  <header class="w-full shadow-sm">
+<body class="bg-gray-100">
 
-  
-  <div class="bg-gray-100 text-sm text-gray-600">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex justify-end items-center gap-4">
-      <span>Aloqa uchun</span>
-      <select class="bg-transparent outline-none">
-        <option>UZ</option>
-      </select>
-    </div>
-  </div>
+  <!-- HEADER -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
 
- 
-  <div class="bg-white">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6">
-
-     
-      <div class="text-2xl font-bold">
-        <img src="icons/Logo.png" class="w- h-10" />
+      <!-- Logo -->
+      <div class="text-xl font-bold">
+        NEXT <span class="text-pink-500">STORE</span>
       </div>
 
-      
-      <button class="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-xl">
-        
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-        KATALOG
-      </button>
-
-      
-      <div class="flex-1 flex">
-        <input class="w-full border rounded-l-xl px-4 py-2" placeholder="Maxsulotlarni izlash" />
-        <button class="bg-blue-500 px-4 rounded-r-xl flex items-center justify-center">
-          
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
-          </svg>
+      <!-- Search -->
+      <div class="flex items-center gap-2 w-1/2">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          ☰ KATALOG
         </button>
+
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            placeholder="Maxsulotlarni izlash"
+            class="w-full border rounded-lg px-4 py-2 pr-10 focus:outline-none"
+          >
+          <span class="absolute right-3 top-2.5 text-gray-400">🔍</span>
+        </div>
       </div>
 
-      
+      <!-- Actions -->
       <div class="flex items-center gap-4">
-
-        
-        <button class="p-2 bg-gray-100 rounded-full">
-          <img src="icons/Vector.png" class="w-5 h-5" />
-        </button>
-
-        
-        <button class="p-2 bg-gray-100 rounded-full">
-          <img src="icons/Buy.png" class="w-5 h-5" />
-        </button>
-
-        
-        <button class="bg-gray-100 px-4 py-2 rounded-xl">
-          Kirish
-        </button>
-
+        <button>❤️</button>
+        <button>🛒</button>
+        <button class="bg-gray-200 px-4 py-2 rounded-lg">Kirish</button>
       </div>
-    </div>
-  </div>
 
-</header>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <section class="max-w-7xl mx-auto mt-6 px-4">
+    <div class="bg-green-600 rounded-2xl p-8 flex items-center justify-between text-white overflow-hidden">
+
+      <!-- Text -->
+      <div class="max-w-md">
+        <h1 class="text-3xl font-bold mb-3 leading-snug">
+          Mahsulot narxidan <br> 1% qaytaramiz
+        </h1>
+        <p class="opacity-90">
+          alif nasiya orqali muddatli to'lov uchun 1% keshbek
+        </p>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="hidden md:block">
+        <img 
+          src="/images/banner.png" 
+          alt="banner"
+          class="w-56 object-contain"
+        >
+      </div>
+
+    </div>
+
+    <!-- SLIDER DOTS -->
+    <div class="flex justify-center gap-2 mt-4">
+      <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+      <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+      <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+      <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="max-w-7xl mx-auto mt-8 px-4">
+    <h2 class="text-xl font-semibold mb-4">Kategoriyalar</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+
+      <!-- CATEGORY ITEM -->
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer">
+        <img src="/images/phone.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Smartfonlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/laptop.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Kompyuterlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/tv.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Televizorlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/watch.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Aqlli soatlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/airpods.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Quloqchinlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/ac.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Konditsioner</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/fridge.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Sovutkichlar</p>
+      </div>
+
+      <div class="bg-white rounded-xl p-4 text-center shadow-sm hover:shadow-md transition">
+        <img src="/images/wash.png" class="w-16 h-16 mx-auto object-contain mb-2">
+        <p class="text-sm">Kir yuvish</p>
+      </div>
+
+    </div>
+
+    <!-- BUTTON -->
+    <div class="mt-6">
+      <button class="w-full bg-gray-200 py-3 rounded-xl">
+        Batafsil
+      </button>
+    </div>
+
+  </section>
+
 </body>
 </html>
