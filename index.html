@@ -1,75 +1,325 @@
 <!doctype html>
-<html>
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <link href="./output.css" rel="stylesheet">
+  <title>Store</title>
 </head>
-<body>
-  <header class="w-full shadow-sm">
+
+<body class="bg-gray-100">
 
   
-  <div class="bg-gray-100 text-sm text-gray-600">
-    <div class="max-w-7xl mx-auto px-4 py-2 flex justify-end items-center gap-4">
-      <span>Aloqa uchun</span>
-      <select class="bg-transparent outline-none">
-        <option>UZ</option>
-      </select>
+  <header class="w-full shadow-sm">
+   
+    <div class="bg-gray-100 text-sm text-gray-600">
+      <div class="max-w-7xl mx-auto px-4 py-2 flex justify-end gap-4">
+        <span>Aloqa uchun</span>
+        <select class="bg-transparent outline-none">
+          <option>UZ</option>
+        </select>
+      </div>
     </div>
-  </div>
 
- 
-  <div class="bg-white">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6">
+    
+    <div class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center gap-6">
+        
+        <img src="../icons/Logo.png" class="h-10 w-auto">
 
-     
-      <div class="text-2xl font-bold">
-        <img src="icons/Logo.png" class="w- h-10" />
+       
+        <button class="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          KATALOG
+        </button>
+
+        
+        <div class="flex-1 flex">
+          <input class="w-full border rounded-l-xl px-4 py-2" placeholder="Maxsulotlarni izlash" />
+          <button class="bg-blue-500 px-4 rounded-r-xl flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
+            </svg>
+          </button>
+        </div>
+
+        
+        <div class="flex items-center gap-4">
+          <button class="p-2 bg-gray-100 rounded-full">
+            <img src="../icons/Vector (1).png" class="w-5 h-5">
+          </button>
+          <button class="p-2 bg-gray-100 rounded-full">
+            <img src="../icons/shopping_cart.png" class="w-5 h-5">
+          </button>
+          <button class="bg-gray-100 px-4 py-2 rounded-xl">
+            Kirish
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- СЛАЙДЕР -->
+  <section class="max-w-7xl mx-auto mt-6 px-4">
+    <div class="relative">
+
+      <!-- СЛАЙДЫ -->
+      <div class="overflow-hidden rounded-2xl mx-auto" style="width: 1230px; height: 380px;">
+        <div id="slider" class="flex transition-transform duration-500 ease-in-out" style="height: 380px;">
+          <img src="../icons/image 9.png" class="w-full h-full object-cover flex-shrink-0" style="width: 1230px; height: 380px;">
+          <img src="../icons/baner1.png" class="w-full h-full object-cover flex-shrink-0" style="width: 1230px; height: 380px;">
+          <img src="../icons/Frame 2.png" class="w-full h-full object-cover flex-shrink-0" style="width: 1230px; height: 380px;">
+        </div>
       </div>
 
-      
-      <button class="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-xl">
-        
+      <!-- ЛЕВАЯ СТРЕЛКА -->
+      <button onclick="prevSlide()" class="absolute -left-[60px] top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-400 rounded-full shadow hover:bg-blue-200 z-10">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16M4 12h16M4 18h16"/>
+          <path d="M15 18l-6-6 6-6"/>
         </svg>
-        KATALOG
       </button>
 
-      
-      <div class="flex-1 flex">
-        <input class="w-full border rounded-l-xl px-4 py-2" placeholder="Maxsulotlarni izlash" />
-        <button class="bg-blue-500 px-4 rounded-r-xl flex items-center justify-center">
-          
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 21l-4.35-4.35M16 10a6 6 0 11-12 0 6 6 0 0112 0z"/>
-          </svg>
-        </button>
+      <!-- ПРАВАЯ СТРЕЛКА -->
+      <button onclick="nextSlide()" class="absolute -right-[60px] top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded-full shadow hover:bg-blue-600 z-10">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6l6 6-6 6"/>
+        </svg>
+      </button>
+
+      <!-- ТОЧКИ -->
+      <div class="flex justify-center gap-4 mt-4">
+        <span onclick="goToSlide(0)" class="w-3.5 h-3.5 rounded-full cursor-pointer" style="background-color: #3B83FA;"></span>
+        <span onclick="goToSlide(1)" class="w-3.5 h-3.5 bg-gray-300 rounded-full cursor-pointer"></span>
+        <span onclick="goToSlide(2)" class="w-3.5 h-3.5 bg-gray-300 rounded-full cursor-pointer"></span>
+        <span onclick="goToSlide(2)" class="w-3.5 h-3.5 bg-gray-300 rounded-full cursor-pointer"></span>
+        <span onclick="goToSlide(2)" class="w-3.5 h-3.5 bg-gray-300 rounded-full cursor-pointer"></span>
       </div>
 
-      
-      <div class="flex items-center gap-4">
-
-        
-        <button class="p-2 bg-gray-100 rounded-full">
-          <img src="icons/Vector.png" class="w-5 h-5" />
-        </button>
-
-        
-        <button class="p-2 bg-gray-100 rounded-full">
-          <img src="icons/Buy.png" class="w-5 h-5" />
-        </button>
-
-        
-        <button class="bg-gray-100 px-4 py-2 rounded-xl">
-          Kirish
-        </button>
-
-      </div>
     </div>
+  </section>
+
+
+<!-- КАТЕГОРИИ -->
+<section class="max-w-7xl mx-auto mt-8 px-4">
+  <h2 class="text-xl font-semibold mb-4">Kategoriyalar</h2>
+
+ 
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-4">
+
+    <!-- Карточки -->
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6.png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Smartfonlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (1).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Kompyuterlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (2).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Televizorlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (3).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Aqlli soatlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (4).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Quloqchinlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (5).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Konditsionerlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (6).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Sovutkichlar</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer w-[135.89px] h-[200px] flex flex-col items-center justify-center mx-auto">
+      <img src="../icons/image 6 (7).png" class="w-16 h-16 object-contain mb-3">
+      <p class="text-sm">Kir yuvish</p>
+    </div>
+
   </div>
 
-</header>
+  <div class="mt-6">
+  <button class="w-full bg-white border border-gray-200 py-3 rounded-xl hover:bg-gray-50 transition shadow-sm">
+    Batafsil
+  </button>
+</div>
+</section>
+
+
+
+<section class="max-w-7xl mx-auto mt-10 px-4">
+
+  
+  <h2 class="text-xl font-semibold mb-6">Eng ko‘p sotilgan</h2>
+
+  
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+
+   
+    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition relative">
+
+      <button class="absolute top-3 right-3">
+        <img src="../icons/favorite_border.png" class="w-5 h-5" alt="Like">
+      </button>
+
+      <!-- IMAGE -->
+      <img src="../icons/image 15.png" class="w-full h-32 object-contain mb-3">
+      <p class="text-blue-600 font-semibold mb-1">
+        299 000 so’m
+      </p>
+      <p class="text-sm mb-2 line-clamp-2">
+        Apple Airpods Pro 
+          simsiz quloqchin , Oq rangda
+      </p>
+      <p class="text-xs text-gray-400 mb-3">
+        1230 ta buyurtma
+      </p>
+      <div class="flex items-center gap-2">
+        <button class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm">
+          Sotib olish
+        </button>
+
+        <button class="p-2 bg-white rounded-full hover:bg-gray-100 transition">
+        <img src="../icons/shopping_cart1.png" class="w-5 h-5" alt="Cart">
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ДУБЛИРУЙ КАРТОЧКИ -->
+
+    <div class="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition relative">
+
+      
+      <span class="absolute top-3 left-3 bg-red-500 text-white text-xs px-2 py-1 rounded">
+        Top sale
+      </span>
+
+      
+      <button class="absolute top-3 right-3">
+        <img src="../icons/favorite_border.png" class="w-5 h-5" alt="Like">
+      </button>
+
+      <!-- IMAGE -->
+      <img src="../icons/image 15.png" class="w-full h-32 object-contain mb-3">
+      <p class="text-blue-600 font-semibold mb-1">
+        16 114 285 so'm
+      </p>
+      <p class="text-sm mb-2 line-clamp-2">
+        Apple Macbook Pro 
+        13" 2.4 2019 Intel core i5 
+        DDR3 8 GB SSD 256 GB
+      </p>
+      <p class="text-xs text-gray-400 mb-3">
+        230 ta buyurtma
+      </p>
+      <div class="flex items-center gap-2">
+        <button class="flex-1 bg-blue-500 text-white py-2 rounded-lg text-sm">
+          Sotib olish
+        </button>
+
+        <button class="p-2 bg-white rounded-full hover:bg-gray-100 transition">
+        <img src="../icons/shopping_cart1.png" class="w-5 h-5" alt="Cart">
+        </button>
+
+      </div>
+
+    </div>
+
+    
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- СКРИПТ ДЛЯ СЛАЙДЕРА -->
+  <script>
+    let currentSlide = 0;
+    const totalSlides = 3;
+    const slider = document.getElementById("slider");
+
+    function updateDots() {
+      document.querySelectorAll('.flex.justify-center.gap-4.mt-4 span').forEach((dot, index) => {
+        dot.style.backgroundColor = index === currentSlide ? '#3B83FA' : '#d1d5db'; // #d1d5db ≈ gray-300
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentSlide * 1230}px)`; // теперь точно на 1230px
+      updateDots();
+    }
+
+    // Инициализация
+    updateSlider();
+  </script>
+
 </body>
 </html>
